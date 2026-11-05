@@ -5571,7 +5571,7 @@ class PagedForwardKernel:
                             tile_tokens,
                             msa_live_limit,
                         )
-                        k_fill_zero = True
+                        k_fill_zero = False
                     else:
                         k_valid_rows = tile_tokens
                         k_fill_zero = False
@@ -5625,7 +5625,7 @@ class PagedForwardKernel:
                         warp_linear_idx,
                         v_valid_rows,
                         self.traits.upcast_stride_v,
-                        True,
+                        False,
                     )
                     cute.arch.cp_async_commit_group()
                 kv_producer_state.advance()
@@ -5659,7 +5659,7 @@ class PagedForwardKernel:
                         tile_tokens,
                         msa_live_limit,
                     )
-                    k_fill_zero = True
+                    k_fill_zero = False
                 else:
                     k_valid_rows = tile_tokens
                     k_fill_zero = False
@@ -5711,7 +5711,7 @@ class PagedForwardKernel:
                     warp_linear_idx,
                     v_valid_rows,
                     self.traits.upcast_stride_v,
-                    True,
+                    False,
                 )
                 cute.arch.cp_async_commit_group()
                 prefetch_base += stage_tile_rows
@@ -6612,7 +6612,7 @@ class PagedForwardKernel:
                                     next_tile_tokens,
                                     msa_live_limit,
                                 )
-                                k_fill_zero = True
+                                k_fill_zero = False
                             else:
                                 k_valid_rows = next_tile_tokens
                                 k_fill_zero = False
@@ -6676,7 +6676,7 @@ class PagedForwardKernel:
                                     next_tile_tokens,
                                     msa_live_limit,
                                 )
-                                k_fill_zero = True
+                                k_fill_zero = False
                             else:
                                 k_valid_rows = next_tile_tokens
                                 k_fill_zero = False
@@ -7180,7 +7180,7 @@ class PagedForwardKernel:
                                     next_tile_tokens,
                                     msa_live_limit,
                                 )
-                                k_fill_zero = True
+                                k_fill_zero = False
                             else:
                                 k_valid_rows = next_tile_tokens
                                 k_fill_zero = False
@@ -7224,7 +7224,7 @@ class PagedForwardKernel:
                                 warp_linear_idx,
                                 next_v_tile_tokens,
                                 self.traits.upcast_stride_v,
-                                True,
+                                False,
                             )
                             cute.arch.cp_async_commit_group()
                         kv_producer_state.advance()
@@ -7253,7 +7253,7 @@ class PagedForwardKernel:
                             warp_linear_idx,
                             next_v_tile_tokens,
                             self.traits.upcast_stride_v,
-                            True,
+                            False,
                         )
                         cute.arch.cp_async_commit_group()
                         prefetch_base += stage_tile_rows
@@ -7278,7 +7278,7 @@ class PagedForwardKernel:
                             warp_linear_idx,
                             next_v_tile_tokens,
                             self.traits.upcast_stride_v,
-                            True,
+                            False,
                         )
                         cute.arch.cp_async_commit_group()
                         prefetch_base += stage_tile_rows
